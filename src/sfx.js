@@ -81,9 +81,11 @@ export function initSfx(toggleBtn) {
     sync();
     if (enabled) play('chime');
   });
-  // pointerdown feels instant on touch; click covers keyboard activation
+  // Mouse: pointerdown feels instant. Touch and keyboard: wait for click, because a touch
+  // pointerdown also starts every scroll gesture and is not a user activation for audio.
   let lastPointer = 0;
   document.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse') return;
     const el = e.target.closest('a, button, [data-sfx]');
     if (!el || el === toggleBtn) return;
     lastPointer = performance.now();

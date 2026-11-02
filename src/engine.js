@@ -65,6 +65,10 @@ const parallax = [];    // {el, speed}
 const progress = [];    // {el}
 const hscroll = [];     // {el, track, dist}
 const sceneEls = [];
+// the CSS fallback behind the 3D canvas picks up a purple glow in the ube scenes (matches three/moods.js)
+const UBE_SCENES = new Set(['ube', 'offers']);
+const UBE_GLOW = '0.14';
+const bg3d = document.getElementById('bg3d');
 let vh = innerHeight;
 let lastY = -1;
 let currentScene = '';
@@ -88,7 +92,6 @@ function frame() {
   const y = scrollY;
   if (y !== lastY) {
     lastY = y;
-    document.documentElement.style.setProperty('--scroll', String(y));
 
     for (const s of scrubs) {
       const r = s.host.getBoundingClientRect();
@@ -119,6 +122,7 @@ function frame() {
     }
     if (active && active !== currentScene) {
       currentScene = active;
+      bg3d?.style.setProperty('--ube-glow', UBE_SCENES.has(active) ? UBE_GLOW : '0');
       window.dispatchEvent(new CustomEvent('brew:scene', { detail: active }));
     }
   }
@@ -167,7 +171,6 @@ function countUp(el) {
 /* ---------- nav + tabbar ---------- */
 function initNav() {
   const nav = document.getElementById('nav');
-  const links = [...document.querySelectorAll('.nav__links a, .tabbar__item')];
   const tabbar = document.getElementById('tabbar');
   const tabs = [...document.querySelectorAll('.tabbar__item')];
   let prev = scrollY;
@@ -177,14 +180,11 @@ function initNav() {
     prev = y;
   }, { passive: true });
 
-  const ids = [...new Set(links.map((a) => a.getAttribute('href').slice(1)))];
-  const targets = ids.map((id) => (id === 'top' ? document.body : document.getElementById(id))).filter(Boolean);
+  const navLinks = [...document.querySelectorAll('.nav__links a')];
   const order = tabs.map((t) => t.dataset.tab);
   const setActive = (id) => {
-    links.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
-    // map sections without a tab onto the nearest earlier tab
-    const tabFor = { top: 'top', story: 'top', menu: 'menu', cakes: 'menu', ube: 'menu', offers: 'offers', training: 'training', pet: 'training', community: 'training', visit: 'visit' };
-    const t = tabFor[id] || 'top';
+    navLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
+    const t = TAB_FOR[id] || 'top';
     tabs.forEach((a) => a.classList.toggle('is-active', a.dataset.tab === t));
     tabbar?.style.setProperty('--tab', String(Math.max(0, order.indexOf(t))));
   };
@@ -193,8 +193,11 @@ function initNav() {
     entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id === 'hero' ? 'top' : e.target.id); });
   }, { rootMargin: '-45% 0px -50% 0px' });
   sections.forEach((s) => io.observe(s));
-  if (!targets.length) setActive('top');
+  setActive('top');
 }
+
+// map sections without a tab onto the nearest earlier tab
+const TAB_FOR = { top: 'top', story: 'top', menu: 'menu', cakes: 'menu', ube: 'menu', offers: 'offers', training: 'training', pet: 'training', community: 'training', visit: 'visit' };
 
 /* ---------- boot ---------- */
 export function initEngine() {

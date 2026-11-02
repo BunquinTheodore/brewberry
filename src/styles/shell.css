@@ -19,7 +19,8 @@
 @keyframes splash-out { to { opacity: 0; visibility: hidden; transform: scale(1.04); } }
 .splash.is-done { display: none; }
 
-/* 3D background */
+/* 3D background. engine.js sets --ube-glow on #bg3d for the ube scenes; registered so it can transition. */
+@property --ube-glow { syntax: "<number>"; inherits: true; initial-value: 0; }
 .bg3d { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 .bg3d canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; opacity: 0; transition: opacity 1.2s var(--ease); }
 .bg3d.is-ready canvas { opacity: 1; }
@@ -36,6 +37,7 @@ main > section, footer { overflow-x: clip; }
 /* Top nav: floating glass pill */
 .nav { position: fixed; top: 14px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; padding-inline: var(--gutter); transition: transform 0.5s var(--ease); }
 .nav.is-hidden { transform: translateY(-120%); }
+.nav.is-hidden:focus-within { transform: none; }
 .nav__pill { display: flex; align-items: center; gap: 8px; width: min(100%, 1040px); padding: 8px 8px 8px 18px; border-radius: 999px; }
 .nav__logo img { height: 34px; width: auto; }
 .nav__links { display: flex; list-style: none; gap: 2px; margin-inline: auto; }

@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const images = JSON.parse(fs.readFileSync(path.resolve('src/images.json'), 'utf8'));
+// resolve project files from this config's folder, not from wherever vite was launched
+const ROOT = path.dirname(fileURLToPath(import.meta.url));
+const images = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/images.json'), 'utf8'));
 
 // <x-img name="cakes-showcase" alt="..." sizes="(max-width:700px) 90vw, 40vw" class="..." eager />
 // expands into a responsive <img> with srcset, intrinsic size and a dominant-colour placeholder.
@@ -11,7 +14,8 @@ function expandImg(attrs) {
   const name = get('name');
   const meta = images[name];
   if (!meta) throw new Error(`x-img: unknown image "${name}"`);
-  const eager = /\beager\b/.test(attrs);
+  // bare `eager` attribute only: blank out quoted values so alt/class text cannot trigger it
+  const eager = /(?:^|\s)eager(?=\s|\/|$)/.test(attrs.replace(/"[^"]*"/g, '""'));
   const sizes = get('sizes') || '(max-width: 700px) 92vw, 45vw';
   const cls = get('class') || '';
   const alt = get('alt') ?? '';
@@ -27,12 +31,13 @@ function includes() {
       order: 'pre',
       handler(html) {
         const withPartials = html.replace(/<!--\s*@include\s+([\w./-]+)\s*-->/g, (_, file) =>
-          fs.readFileSync(path.resolve(file), 'utf8'));
+          fs.readFileSync(path.join(ROOT, file), 'utf8'));
         return withPartials.replace(/<x-img\b([^>]*?)\/?>/g, (_, attrs) => expandImg(attrs));
       },
     },
     handleHotUpdate({ file, server }) {
-      if (file.includes(`${path.sep}sections${path.sep}`) || file.endsWith('.html')) server.ws.send({ type: 'full-reload' });
+      // vite passes posix paths on every OS; partials are .html, everything else keeps normal HMR
+      if (file.endsWith('.html')) server.ws.send({ type: 'full-reload' });
     },
   };
 }

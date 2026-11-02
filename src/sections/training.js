@@ -33,8 +33,9 @@ export default function init(root) {
     if (active && !queued) { queued = true; requestAnimationFrame(update); }
   };
 
-  const io = new IntersectionObserver(([entry]) => {
-    active = entry.isIntersecting;
+  // several entries can queue up between callbacks: the last one is the current state
+  const io = new IntersectionObserver((entries) => {
+    active = entries[entries.length - 1].isIntersecting;
     request();
   });
   io.observe(root.querySelector('.training-stack') || root);

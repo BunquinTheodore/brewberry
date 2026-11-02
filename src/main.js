@@ -11,7 +11,10 @@ function canRun3D() {
   if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return false;
   try {
     const c = document.createElement('canvas');
-    return !!(c.getContext('webgl2') || c.getContext('webgl'));
+    const gl = c.getContext('webgl2') || c.getContext('webgl');
+    // release the probe context right away: browsers cap live WebGL contexts
+    gl?.getExtension('WEBGL_lose_context')?.loseContext();
+    return !!gl;
   } catch { return false; }
 }
 
