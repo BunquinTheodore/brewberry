@@ -1,0 +1,176 @@
+/* HERO: text left (desktop) / top (mobile). The 3D latte cup lives behind, on the right half
+   on desktop and lower centre on mobile, so those areas stay visually open. */
+.hero {
+  --hq: clamp(0, (var(--p, 0.5) - 0.5) * 2, 1); /* 0 at top, 1 when the hero has scrolled away */
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: 0;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+}
+
+/* soft legibility scrim behind the copy only, never over the cup */
+.hero-scrim {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(75% 60% at 0% 45%, rgba(14, 9, 7, 0.72), transparent 70%),
+    linear-gradient(to bottom, rgba(14, 9, 7, 0.35), transparent 30%);
+}
+
+.hero-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(96px, 14vh, 150px);
+  padding-bottom: 32px;
+}
+
+.hero-copy {
+  max-width: min(680px, 56%);
+  transform: translate3d(0, calc(var(--hq) * -90px), 0) scale(calc(1 - var(--hq) * 0.05));
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.hero-fade { opacity: calc(1 - var(--hq) * 1.5); }
+
+/* kicker pill */
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 16px 8px 12px; margin-bottom: 26px;
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: var(--t2);
+  box-shadow: var(--glass-hi);
+}
+.hero-pulse { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--caramel-2); }
+.hero-pulse::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--caramel-2);
+  animation: hero-ping 2.4s var(--ease) infinite;
+}
+@keyframes hero-ping { 0% { transform: scale(1); opacity: 0.7; } 80%, 100% { transform: scale(3.2); opacity: 0; } }
+
+/* the one h1 on the page */
+.hero-title {
+  font-size: clamp(46px, 6.6vw, 104px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.048em;
+  color: var(--t1);
+  text-wrap: balance;
+}
+.hero-accent {
+  font-size: 1.1em;
+  line-height: 0.9;
+  color: var(--caramel-2);
+  letter-spacing: -0.02em;
+  padding-right: 0.04em;
+}
+/* faster char stagger than the global default so the headline settles quickly */
+.hero-title .split-c { transition-duration: 1s; transition-delay: calc(var(--i, 0) * 20ms + 80ms); }
+/* the tight 0.98 line height plus serif italic overhang would clip descenders (y) and the
+   italic "t" inside the masks: give the masks breathing room, cancelled by negative margins */
+.hero-title .split-mask { padding: 0.06em 0.05em 0.16em; margin: -0.06em -0.05em -0.16em; }
+
+.hero-lead {
+  margin-top: clamp(20px, 2.4vw, 30px);
+  max-width: 34ch;
+  color: rgba(246, 239, 227, 0.8);
+  text-shadow: 0 2px 22px rgba(14, 9, 7, 0.65);
+}
+
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(26px, 3vw, 38px); }
+.hero-cta { min-height: 52px; padding: 0 26px; font-size: 16px; }
+.hero-cta svg { transition: transform 0.4s var(--ease); }
+.hero-cta:hover svg { transform: translateX(3px); }
+
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; list-style: none; }
+.hero-chip { background: rgba(255, 245, 230, 0.07); box-shadow: var(--glass-hi); color: var(--t2); }
+.hero-chip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--caramel-2); box-shadow: 0 0 10px rgba(226, 180, 124, 0.8); }
+.hero-chip-dot--latte { background: var(--latte); box-shadow: 0 0 10px rgba(232, 214, 189, 0.7); }
+.hero-chip-dot--ube { background: var(--ube); box-shadow: 0 0 10px rgba(167, 124, 224, 0.8); }
+
+/* bottom: scroll cue + glass marquee band */
+.hero-foot { position: relative; padding-bottom: 28px; }
+
+.hero-cue {
+  position: absolute; left: 50%; bottom: calc(100% + 18px);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--hq) * 4);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--t3);
+  border-radius: 14px; padding: 4px;
+}
+.hero-cue-capsule { position: relative; width: 22px; height: 34px; border-radius: 12px; border: 1.5px solid rgba(246, 239, 227, 0.35); }
+.hero-cue-dot {
+  position: absolute; left: 50%; top: 7px; width: 4px; height: 7px; margin-left: -2px;
+  border-radius: 2px; background: var(--caramel-2);
+  animation: hero-cue 1.9s var(--ease-io) infinite;
+}
+@keyframes hero-cue { 0% { transform: translateY(0); opacity: 0; } 25% { opacity: 1; } 70% { transform: translateY(12px); opacity: 0; } 100% { transform: translateY(12px); opacity: 0; } }
+.hero-cue:hover { color: var(--t1); }
+
+.hero-band { padding: 14px 0; border-radius: 999px; }
+.hero-marquee .marquee__track { gap: 0; }
+.hero-marquee:hover .marquee__track { animation-play-state: paused; }
+.hero-mq-group { display: flex; align-items: center; flex-shrink: 0; list-style: none; }
+.hero-mq-item {
+  display: flex; align-items: center; gap: 28px; padding-right: 28px;
+  white-space: nowrap;
+  font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; letter-spacing: -0.02em; color: var(--t2);
+}
+.hero-mq-item:nth-child(even) span { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 1.15em; letter-spacing: -0.005em; color: var(--t1); }
+
+/* coffee bean glyph, pure CSS */
+.hero-bean {
+  position: relative; display: block; flex-shrink: 0;
+  width: 11px; height: 15px; border-radius: 50%;
+  background: radial-gradient(120% 90% at 30% 25%, #d9a56c, #8a5a33 55%, #4a2e1c);
+  transform: rotate(28deg);
+  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.35);
+}
+.hero-bean::after {
+  content: ""; position: absolute; top: 2px; bottom: 2px; left: 4px; width: 4px;
+  border-left: 1.5px solid rgba(30, 17, 9, 0.85); border-radius: 50%;
+}
+
+/* tablet + phone: copy on top, keep lower centre open for the cup */
+@media (max-width: 820px) {
+  .hero-scrim {
+    background: linear-gradient(to bottom, rgba(14, 9, 7, 0.78) 0%, rgba(14, 9, 7, 0.45) 45%, transparent 70%);
+  }
+  .hero-inner { justify-content: flex-start; padding-top: 92px; padding-bottom: 20px; }
+  .hero-copy { max-width: 600px; }
+  /* scale with the screen so "Baked by hand." always holds one line (40px at 320, 46px at 375) */
+  .hero-title { font-size: clamp(40px, 12.2vw, 76px); }
+  .hero-kicker { margin-bottom: 20px; }
+  .hero-foot { padding-bottom: calc(var(--tabbar-h) + 14px + env(safe-area-inset-bottom, 0px)); }
+  .hero-cue { display: none; }
+  .hero-band { padding: 11px 0; }
+}
+/* small phones with little height (iPhone SE class): drop the chip row so the copy stays
+   clear of the cup in the lower centre */
+@media (max-width: 820px) and (max-height: 700px) {
+  .hero-chips { display: none; }
+}
+@media (max-width: 420px) {
+  .hero-lead { font-size: 17px; }
+  /* two equal pills side by side; flex-wrap would drop the second one to its own row at 375px */
+  .hero-ctas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero-cta { padding: 0 12px; font-size: 15px; gap: 8px; white-space: nowrap; }
+}
+@media (max-width: 340px) {
+  .hero-ctas { grid-template-columns: 1fr; }
+}
+/* short landscape phones: let the hero grow instead of cramming */
+@media (max-height: 560px) and (orientation: landscape) {
+  .hero { min-height: auto; }
+  .hero-inner { padding-top: 92px; }
+  .hero-cue { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy { transform: none; }
+  .hero-fade, .hero-cue { opacity: 1; }
+  .hero-pulse::after, .hero-cue-dot { animation: none; }
+}

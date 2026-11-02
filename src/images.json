@@ -1,0 +1,631 @@
+{
+ "case-muffins": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "case-pastries": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,24)"
+ },
+ "ube-cheese-buns": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "ube-cheese-buns-2": {
+  "w": 1284,
+  "h": 1710,
+  "widths": [
+   480,
+   960,
+   1284
+  ],
+  "color": "rgb(200,184,152)"
+ },
+ "choco-muffins": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(72,40,24)"
+ },
+ "yema-buns": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(120,72,8)"
+ },
+ "pain-choco": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(24,24,24)"
+ },
+ "croissant-white": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "croissant-rack": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(24,24,8)"
+ },
+ "pain-choco-2": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "pain-choco-3": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "pain-choco-4": {
+  "w": 1440,
+  "h": 1914,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(24,24,24)"
+ },
+ "story-barista-counter": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "place-neon-night": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,24,8)"
+ },
+ "story-soft-opening": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "story-selfie": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "place-exterior-dusk": {
+  "w": 2000,
+  "h": 1500,
+  "widths": [
+   480,
+   960,
+   1600
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "people-group-1": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(168,152,120)"
+ },
+ "people-long-table": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(232,232,232)"
+ },
+ "latte-cookies-cream": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(24,8,8)"
+ },
+ "matcha-tower": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(120,72,8)"
+ },
+ "offer-student-promo": {
+  "w": 1080,
+  "h": 1350,
+  "widths": [
+   480,
+   960,
+   1080
+  ],
+  "color": "rgb(248,248,216)"
+ },
+ "iced-latte-cheesecake": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "cappuccino-basque": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "latte-flatlay": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "summer-sips-trio": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(24,8,8)"
+ },
+ "nachos": {
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(24,24,24)"
+ },
+ "spread-table": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "choco-domes": {
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(88,120,152)"
+ },
+ "people-group-2": {
+  "w": 2000,
+  "h": 1500,
+  "widths": [
+   480,
+   960,
+   1600
+  ],
+  "color": "rgb(24,24,24)"
+ },
+ "people-family": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(24,24,24)"
+ },
+ "people-friends": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(24,24,24)"
+ },
+ "people-night": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "people-graduation": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "story-team-thumbs": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(200,200,184)"
+ },
+ "iced-drinks-window": {
+  "w": 1455,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1455
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "team-thumbs-2": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(56,56,56)"
+ },
+ "spread-closeup": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(56,56,56)"
+ },
+ "drinks-buns": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,24,24)"
+ },
+ "offer-summer-sips": {
+  "w": 1415,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1415
+  ],
+  "color": "rgb(216,232,248)"
+ },
+ "story-staff-selfie": {
+  "w": 2000,
+  "h": 1500,
+  "widths": [
+   480,
+   960,
+   1600
+  ],
+  "color": "rgb(24,24,24)"
+ },
+ "story-staff-table": {
+  "w": 2000,
+  "h": 1500,
+  "widths": [
+   480,
+   960,
+   1600
+  ],
+  "color": "rgb(248,248,248)"
+ },
+ "brownie-crumble": {
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(136,136,136)"
+ },
+ "egg-tarts": {
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(56,88,136)"
+ },
+ "smores-croissant": {
+  "w": 1440,
+  "h": 1440,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(104,120,152)"
+ },
+ "people-window-guest": {
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "pastry-spread": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   480,
+   960
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "people-family-night": {
+  "w": 1440,
+  "h": 1920,
+  "widths": [
+   480,
+   960,
+   1440
+  ],
+  "color": "rgb(136,120,104)"
+ },
+ "cakes-showcase": {
+  "w": 1086,
+  "h": 1448,
+  "widths": [
+   480,
+   960,
+   1086
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "ube-flatlay": {
+  "w": 1448,
+  "h": 1931,
+  "widths": [
+   480,
+   960,
+   1448
+  ],
+  "color": "rgb(232,232,232)"
+ },
+ "ube-sofa": {
+  "w": 1331,
+  "h": 1774,
+  "widths": [
+   480,
+   960,
+   1331
+  ],
+  "color": "rgb(216,216,216)"
+ },
+ "ube-pastillas-poster": {
+  "w": 1182,
+  "h": 1772,
+  "widths": [
+   480,
+   960,
+   1182
+  ],
+  "color": "rgb(248,248,232)"
+ },
+ "focaccia": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(216,184,136)"
+ },
+ "training-class": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(216,216,200)"
+ },
+ "training-barista": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "training-milk": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(248,248,248)"
+ },
+ "training-graduates": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(216,216,216)"
+ },
+ "training-demo": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(248,232,232)"
+ },
+ "training-student-drink": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(40,24,8)"
+ },
+ "training-dose": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "training-tamp": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(8,8,24)"
+ },
+ "pet-kitten-drinks": {
+  "w": 1284,
+  "h": 1662,
+  "widths": [
+   480,
+   960,
+   1284
+  ],
+  "color": "rgb(8,8,8)"
+ },
+ "pet-kitten-counter": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   960,
+   1500
+  ],
+  "color": "rgb(168,152,136)"
+ }
+}

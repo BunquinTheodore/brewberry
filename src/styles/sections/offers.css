@@ -1,0 +1,139 @@
+/* OFFERS: two glass tilt cards (student promo + Summer Sips) and a Facebook CTA */
+.offers { isolation: isolate; }
+
+.offers-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.offers-title .serif { color: var(--caramel-2); }
+.offers-lead { margin-inline: auto; text-align: center; }
+
+.offers-grid { display: grid; gap: 20px; margin-top: clamp(44px, 6vw, 80px); }
+@media (min-width: 900px) { .offers-grid { grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; } }
+.offers-reveal { min-width: 0; }
+
+/* Card shell */
+.offers-card {
+  position: relative; height: 100%; overflow: hidden; isolation: isolate;
+  display: flex; flex-direction: column; gap: 18px;
+  padding: clamp(20px, 3vw, 36px);
+  border-radius: clamp(26px, 3vw, 36px);
+}
+.offers-spec {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 248, 238, 0.16), transparent 42%);
+  opacity: 0.5; transition: opacity 0.5s var(--ease);
+}
+.offers-card:hover .offers-spec { opacity: 1; }
+.offers-card > :not(.offers-spec):not(.offers-glow) { position: relative; z-index: 1; }
+
+.offers-kicker { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--caramel-2); }
+.offers-card__title { font-size: clamp(20px, 2vw, 24px); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--t1); }
+.offers-card__title--lg { font-size: clamp(28px, 3.2vw, 40px); font-weight: 650; letter-spacing: -0.03em; line-height: 1.05; margin-top: -8px; }
+.offers-card__title--lg .serif { color: var(--caramel-2); }
+.offers-card__note { margin-top: 8px; font-size: 15px; color: var(--t2); }
+
+/* Student promo */
+.offers-student__top { display: grid; grid-template-columns: 1fr 36%; gap: 16px; align-items: center; }
+.offers-big { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 6px 0 4px; line-height: 0.85; }
+.offers-big__num {
+  display: inline-block; min-width: 2.3ch; font-variant-numeric: tabular-nums;
+  font-size: clamp(64px, 19vw, 150px); font-weight: 800; letter-spacing: -0.06em;
+  background: linear-gradient(160deg, #fff4e2 10%, var(--caramel-2) 55%, var(--caramel)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.offers-big__off { font-size: clamp(22px, 5vw, 34px); font-weight: 700; letter-spacing: 0.02em; color: var(--t1); }
+@media (min-width: 900px) { .offers-big__num { font-size: clamp(96px, 10vw, 150px); } }
+
+.offers-student__poster {
+  aspect-ratio: 1080 / 1350; border-radius: 16px;
+  transform: rotate(5deg); transition: transform 0.8s var(--ease);
+  box-shadow: 0 24px 40px -18px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 240, 220, 0.18);
+}
+.offers-card--student:hover .offers-student__poster { transform: rotate(1deg) scale(1.04); }
+
+/* Weekday segmented control */
+.offers-days { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+.offers-days__label { padding-top: 14px; font-size: 14px; font-weight: 600; color: var(--t2); }
+.offers-seg {
+  position: relative; display: grid; grid-template-columns: repeat(4, 1fr);
+  padding: 4px; border-radius: 999px;
+  background: rgba(10, 6, 4, 0.38); border: 1px solid var(--glass-stroke);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.offers-seg__thumb {
+  position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 4);
+  border-radius: 999px; background: linear-gradient(180deg, #f3d5ad, var(--caramel-2));
+  box-shadow: 0 6px 16px -6px rgba(226, 180, 124, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translate3d(calc(var(--i, 0) * 100%), 0, 0);
+  transition: transform 0.55s var(--ease);
+}
+.offers-seg__btn {
+  position: relative; z-index: 1; min-height: 44px; border-radius: 999px;
+  font-size: 15px; font-weight: 600; color: var(--t2);
+  transition: color 0.35s var(--ease); -webkit-tap-highlight-color: transparent;
+}
+.offers-seg__btn[aria-pressed="true"] { color: var(--bg); }
+.offers-seg__btn:not([aria-pressed="true"]):hover { color: var(--t1); }
+.offers-seg__btn[data-today]::after {
+  content: ""; position: absolute; top: 7px; right: 50%; margin-right: -2.5px; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--red); box-shadow: 0 0 0 2px rgba(14, 9, 7, 0.4);
+}
+.offers-school { min-height: 3.6em; display: flex; flex-direction: column; gap: 2px; }
+.offers-school__day { font-family: var(--f-serif); font-style: italic; font-size: 20px; color: var(--caramel-2); }
+.offers-school__name { font-size: clamp(20px, 2.2vw, 26px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.15; color: var(--t1); }
+.offers-school > * { transition: opacity 0.28s var(--ease), transform 0.5s var(--ease), filter 0.35s var(--ease); }
+.offers-school.is-swap > * { opacity: 0; transform: translate3d(0, 10px, 0); filter: blur(6px); }
+.offers-days__note { font-size: 14px; color: var(--t2); }
+
+/* Summer Sips */
+.offers-glow {
+  position: absolute; z-index: 0; pointer-events: none;
+  inset: -20% -20% auto auto; width: 110%; aspect-ratio: 1; border-radius: 50%;
+  opacity: 0; transition: opacity 0.9s var(--ease);
+}
+.offers-glow--strawberry { background: radial-gradient(closest-side, rgba(232, 72, 86, 0.42), transparent); }
+.offers-glow--calamansi { background: radial-gradient(closest-side, rgba(240, 200, 60, 0.36), transparent); }
+.offers-glow--blueberry { background: radial-gradient(closest-side, rgba(140, 92, 220, 0.48), transparent); }
+.offers-card--sips[data-drink="strawberry"] .offers-glow--strawberry,
+.offers-card--sips[data-drink="calamansi"] .offers-glow--calamansi,
+.offers-card--sips[data-drink="blueberry"] .offers-glow--blueberry { opacity: 1; }
+
+.offers-sips__media { aspect-ratio: 16 / 11; border-radius: 20px; box-shadow: 0 0 0 1px rgba(255, 240, 220, 0.14); }
+.offers-sips__img { object-position: 50% 80%; transform: scale(1.06); transition: transform 1.2s var(--ease); }
+.offers-card--sips:hover .offers-sips__img { transform: scale(1.12); }
+
+.offers-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.offers-pill {
+  --dot: #e84856;
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px;
+  border-radius: 999px; font-size: 15px; font-weight: 600; color: var(--t2);
+  background: rgba(255, 245, 230, 0.07); border: 1px solid var(--glass-stroke);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: color 0.3s, background 0.3s, border-color 0.3s, transform 0.4s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.offers-pill[data-pick="calamansi"] { --dot: #f0c83c; }
+.offers-pill[data-pick="blueberry"] { --dot: #9c6ee6; }
+.offers-pill b { width: 10px; height: 10px; border-radius: 50%; background: var(--dot); transition: transform 0.5s var(--ease); }
+.offers-pill:hover { color: var(--t1); background: rgba(255, 245, 230, 0.12); }
+.offers-pill:active { transform: scale(0.95); }
+.offers-pill[aria-pressed="true"] { color: var(--t1); background: rgba(255, 245, 230, 0.16); border-color: color-mix(in srgb, var(--dot) 60%, transparent); }
+.offers-pill[aria-pressed="true"] b { transform: scale(1.35); box-shadow: 0 0 12px var(--dot); }
+
+.offers-desc { display: grid; min-height: 4.5em; }
+.offers-desc__text {
+  grid-area: 1 / 1; font-size: clamp(17px, 1.6vw, 19px); line-height: 1.5; color: var(--t2);
+  opacity: 0; transform: translate3d(0, 12px, 0); filter: blur(6px);
+  transition: opacity 0.45s var(--ease), transform 0.7s var(--ease), filter 0.5s var(--ease);
+}
+.offers-desc__text.is-on { opacity: 1; transform: none; filter: none; }
+
+/* CTA */
+.offers-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: clamp(40px, 6vw, 72px); text-align: center; }
+.offers-cta__btn { min-height: 54px; padding: 0 28px; font-size: 17px; }
+.offers-cta__note { font-size: 14px; color: var(--t2); }
+
+@media (max-width: 380px) {
+  .offers-student__top { grid-template-columns: 1fr 34%; gap: 12px; }
+  .offers-pill { padding: 0 13px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .offers-student__poster, .offers-card--student:hover .offers-student__poster { transform: none; }
+}

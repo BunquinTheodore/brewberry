@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Brewbery Kitchenette | Brew and Bakery Café</title>
+  <meta name="description" content="Brewbery Kitchenette is a brew and bakery kitchenette. Specialty coffee, fresh croissants, ube buns, cakes, and one on one barista training. From the heart of a barista, from the hands of a pâtissier.">
+  <meta name="theme-color" content="#0e0907">
+  <meta property="og:title" content="Brewbery Kitchenette">
+  <meta property="og:description" content="From the heart of a barista, from the hands of a pâtissier. Coffee, pastry, cakes and barista training.">
+  <meta property="og:image" content="/og.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="image" href="/img/logo-light.webp" type="image/webp">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Brewbery Kitchenette","description":"Brew and Bakery Kitchenette. Specialty coffee, pastries, cakes and one on one barista training.","telephone":"+63 968 892 3674","servesCuisine":["Coffee","Pastry","Cakes"],"image":"/og.jpg","sameAs":["https://www.facebook.com/brewberycafe","https://www.instagram.com/brewberycafe"]}
+  </script>
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/shell.css">
+  <link rel="stylesheet" href="/src/styles/sections.css">
+</head>
+<body>
+  <!-- Splash: pure CSS so it never blocks interaction, removed by engine after it plays -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash__glow"></div>
+    <img class="splash__logo" src="/img/logo-light.webp" alt="" width="600" height="285">
+    <div class="splash__steam"><i></i><i></i><i></i></div>
+    <div class="splash__bar"><span></span></div>
+  </div>
+
+  <!-- Interactive 3D background (three.js, lazy loaded) -->
+  <div class="bg3d" id="bg3d" aria-hidden="true"><div class="bg3d__fallback"></div></div>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <nav class="nav__pill glass" aria-label="Primary">
+      <a class="nav__logo" href="#top" aria-label="Brewbery Kitchenette home"><img src="/img/logo-light.webp" alt="Brewbery Kitchenette" width="600" height="285"></a>
+      <ul class="nav__links">
+        <li><a href="#story">Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#cakes">Cakes</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+      <button class="nav__sound" id="soundToggle" type="button" aria-pressed="true" aria-label="Toggle click sounds">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path class="wave" d="M15.5 8.5a5 5 0 0 1 0 7"/><path class="wave" d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+      <a class="btn btn--caramel nav__cta" href="https://www.facebook.com/brewberycafe" target="_blank" rel="noopener">Order</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- @include sections/hero.html -->
+    <!-- @include sections/story.html -->
+    <!-- @include sections/menu.html -->
+    <!-- @include sections/cakes.html -->
+    <!-- @include sections/ube.html -->
+    <!-- @include sections/offers.html -->
+    <!-- @include sections/training.html -->
+    <!-- @include sections/pet.html -->
+    <!-- @include sections/community.html -->
+    <!-- @include sections/visit.html -->
+  </main>
+  <!-- @include sections/footer.html -->
+
+  <!-- Mobile bottom tab bar -->
+  <nav class="tabbar glass glass--strong" id="tabbar" aria-label="Mobile">
+    <a href="#top" class="tabbar__item" data-tab="top"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+    <a href="#menu" class="tabbar__item" data-tab="menu"><svg viewBox="0 0 24 24"><path d="M5 8h12v5a6 6 0 0 1-12 0z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 2.5c0 1.5 1 1.5 1 3M12 2.5c0 1.5 1 1.5 1 3"/></svg><span>Menu</span></a>
+    <a href="#offers" class="tabbar__item" data-tab="offers"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span>Offers</span></a>
+    <a href="#training" class="tabbar__item" data-tab="training"><svg viewBox="0 0 24 24"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg><span>Training</span></a>
+    <a href="#visit" class="tabbar__item" data-tab="visit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Visit</span></a>
+    <span class="tabbar__blob" aria-hidden="true"></span>
+  </nav>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

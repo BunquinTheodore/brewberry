@@ -1,0 +1,165 @@
+/* CAKES: cream, Apple product style. Headline, scroll scale-up showcase, bento.
+   Every selector is scoped with the .cakes- prefix. */
+
+.cakes-sec { overflow: clip; }
+
+.cakes-head { display: grid; justify-items: center; gap: 18px; text-align: center; }
+.cakes-title { max-width: 12ch; }
+.cakes-accent { color: #a26a32; }
+.cakes-lead { max-width: 40ch; margin-inline: auto; }
+
+/* ---------- Showcase ---------- */
+.cakes-stage {
+  --s: clamp(0, calc((var(--p, 0.5) - 0.06) * 2.5), 1);
+  padding-inline: var(--gutter);
+  margin-top: clamp(40px, 7vw, 88px);
+}
+.cakes-stage__frame {
+  position: relative;
+  isolation: isolate;
+  max-width: 1360px;
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background:
+    radial-gradient(70% 60% at 50% 30%, rgba(226, 180, 124, 0.55), transparent 70%),
+    linear-gradient(160deg, #e9d3b4, #c99a68 60%, #8a5d38);
+  box-shadow: 0 50px 90px -50px rgba(58, 39, 27, 0.55);
+  transform-origin: 50% 100%;
+  transform: perspective(1800px) rotateX(calc((1 - var(--s)) * 14deg)) scale(calc(0.84 + var(--s) * 0.16));
+  will-change: transform;
+}
+.cakes-stage__wash { display: none; }
+.cakes-stage__hero { position: absolute; inset: 0; }
+.cakes-stage__img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(calc(1.14 - var(--s) * 0.14));
+  will-change: transform;
+}
+.cakes-stage__hero::after {
+  content: ""; position: absolute; inset: 55% 0 0;
+  background: linear-gradient(to top, rgba(42, 28, 19, 0.55), transparent);
+  pointer-events: none;
+}
+
+.cakes-stage__chips {
+  position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 2;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  list-style: none;
+}
+.cakes-chip {
+  padding: 9px 16px; border-radius: 999px;
+  font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
+  color: #2a1c13;
+  background: rgba(255, 250, 242, 0.62);
+  -webkit-backdrop-filter: blur(var(--blur-sm)) saturate(170%);
+  backdrop-filter: blur(var(--blur-sm)) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 0 #fff, 0 12px 30px -16px rgba(58, 39, 27, 0.5);
+  opacity: calc(0.2 + var(--s) * 0.8);
+  transform: translate3d(0, calc((1 - var(--s)) * 24px), 0);
+}
+
+@media (min-width: 821px) {
+  .cakes-stage__frame { aspect-ratio: 16 / 9; }
+  .cakes-stage__wash { display: block; position: absolute; inset: -12%; z-index: -1; opacity: 0.75; }
+  .cakes-stage__washimg { width: 100%; height: 100%; object-fit: cover; filter: blur(40px) saturate(1.25); }
+  .cakes-stage__hero {
+    inset: auto;
+    left: 50%; top: 6%;
+    height: 88%;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: 0 40px 80px -30px rgba(42, 28, 19, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.35);
+    transform: translate3d(-50%, calc((1 - var(--s)) * 10%), 0);
+  }
+  .cakes-stage__hero::after { content: none; }
+  .cakes-stage__chips { inset: 0; display: block; pointer-events: none; }
+  .cakes-chip { position: absolute; font-size: 16px; padding: 12px 22px; }
+  .cakes-chip--a { left: 9%; top: 22%; transform: translate3d(calc((1 - var(--s)) * -60px), 0, 0); }
+  .cakes-chip--b { right: 9%; top: 38%; transform: translate3d(calc((1 - var(--s)) * 60px), 0, 0); }
+  .cakes-chip--c { left: 14%; bottom: 20%; transform: translate3d(calc((1 - var(--s)) * -40px), calc((1 - var(--s)) * 30px), 0); }
+}
+
+/* ---------- Bento ---------- */
+.cakes-bento {
+  display: grid;
+  gap: 12px;
+  margin-top: clamp(48px, 8vw, 104px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto repeat(4, 168px);
+  grid-template-areas:
+    "txt    txt"
+    "spread domes"
+    "spread muff"
+    "past   muff"
+    "p3     p4";
+}
+.cakes-tile--txt    { grid-area: txt; }
+.cakes-tile--spread { grid-area: spread; }
+.cakes-tile--domes  { grid-area: domes; }
+.cakes-tile--muff   { grid-area: muff; }
+.cakes-tile--past   { grid-area: past; }
+.cakes-tile--p3     { grid-area: p3; }
+.cakes-tile--p4     { grid-area: p4; }
+
+.cakes-tile {
+  position: relative;
+  min-width: 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--latte);
+}
+.cakes-tile__img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+.cakes-tile:not(.cakes-tile--txt)::after {
+  content: ""; position: absolute; inset: 50% 0 0;
+  background: linear-gradient(to top, rgba(30, 20, 13, 0.7), transparent);
+  pointer-events: none;
+}
+.cakes-tile__cap {
+  position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 1;
+  font-size: 15px; font-weight: 650; letter-spacing: -0.015em; line-height: 1.25;
+  color: #fff7ec;
+}
+
+.cakes-tile--txt {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 14px;
+  padding: clamp(24px, 3.4vw, 44px);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(90% 70% at 100% 0%, rgba(226, 180, 124, 0.35), transparent 65%),
+    radial-gradient(80% 60% at 0% 100%, rgba(167, 124, 224, 0.14), transparent 60%),
+    var(--glass-light);
+}
+.cakes-tile__big { font-size: clamp(32px, 4vw, 56px); font-weight: 700; line-height: 1.02; letter-spacing: -0.04em; max-width: 13ch; }
+.cakes-tile__big .serif { color: #a26a32; }
+.cakes-tile--txt p { max-width: 36ch; }
+.cakes-tile__btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .cakes-tile:hover .cakes-tile__img { transform: scale(1.07); }
+}
+
+@media (min-width: 821px) {
+  .cakes-bento {
+    gap: 16px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(3, clamp(200px, 19vw, 250px));
+    grid-template-areas:
+      "txt  txt spread domes"
+      "txt  txt spread muff"
+      "past p3  p4     muff";
+  }
+  .cakes-tile__cap { font-size: 17px; left: 18px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cakes-stage { --s: 1; }
+}

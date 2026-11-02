@@ -1,0 +1,128 @@
+/* Training: one on one barista training. Every selector prefixed with .training */
+.training { --stack-top: 84px; --stack-step: 14px; overflow-x: clip; }
+
+/* Intro */
+.training-intro { display: grid; gap: clamp(48px, 7vw, 96px); align-items: center; }
+.training-intro__copy { display: grid; gap: 22px; justify-items: start; }
+.training-title { max-width: 12ch; }
+.training-accent { color: var(--caramel-2); padding-right: 0.06em; }
+.training-lead { max-width: 44ch; }
+.training-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.training-cta--center { justify-content: center; }
+
+.training-hero { position: relative; width: min(100%, 460px); justify-self: center; padding: 26px 18px 34px; }
+.training-hero__frame { aspect-ratio: 4 / 5; border-radius: var(--r-lg); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7); }
+.training-hero__frame img { transform: scale(1.04); }
+.training-hero__shine { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(circle at var(--mx, 30%) var(--my, 20%), rgba(255, 240, 220, 0.22), transparent 45%),
+    linear-gradient(180deg, transparent 55%, rgba(14, 9, 7, 0.45)); }
+.training-float { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--t1); white-space: nowrap; animation: training-bob 6s var(--ease-io) infinite; }
+.training-float--a { top: 0; left: 0; }
+.training-float--b { right: 0; bottom: 6px; animation-delay: -3s; }
+.training-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--caramel-2); box-shadow: 0 0 0 4px rgba(226, 180, 124, 0.22); }
+@keyframes training-bob { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(0, -8px, 0); } }
+
+/* Marquee */
+.training-marquee { margin-block: clamp(72px, 10vw, 140px) clamp(40px, 6vw, 80px); }
+/* spacing lives on each item (not gap) so the -50% loop lands exactly on the second copy, no seam jump */
+.training-marquee .marquee__track { gap: 0; }
+.training-marquee span { padding-inline-end: clamp(28px, 5vw, 64px); }
+.training-marquee span { font-size: clamp(56px, 11vw, 150px); font-weight: 700; letter-spacing: -0.045em; line-height: 1.05; color: transparent; -webkit-text-stroke: 1px rgba(246, 239, 227, 0.28); }
+.training-marquee span.serif { font-weight: 400; color: var(--caramel-2); -webkit-text-stroke: 0; opacity: 0.9; }
+
+/* Stacking cards */
+.training-stack-head { display: grid; gap: 14px; margin-bottom: clamp(28px, 4vw, 48px); }
+.training-stack-head .h-2 { max-width: 16ch; }
+.training-stack { list-style: none; display: flex; flex-direction: column; gap: clamp(28px, 6vh, 64px); padding-bottom: 8vh; }
+.training-card {
+  --k: 0;
+  position: sticky; top: calc(var(--stack-top) + var(--i) * var(--stack-step));
+  height: min(620px, calc(100svh - var(--stack-top) - var(--tabbar-h) - 5 * var(--stack-step) - 24px));
+  min-height: 380px;
+  display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 18px;
+  padding: 12px 12px 22px; border-radius: var(--r-lg);
+  background: linear-gradient(160deg, #3a281c, #18110c 60%);
+  border: 1px solid var(--glass-stroke);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 -18px 50px -24px rgba(0, 0, 0, 0.7);
+  transform-origin: 50% 0;
+  transform: translate3d(0, calc(var(--k) * -10px), 0) scale(calc(1 - var(--k) * 0.06));
+  will-change: transform;
+  isolation: isolate;
+}
+/* dims the card as the next one slides over it */
+.training-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: #0b0705; opacity: calc(var(--k) * 0.55); pointer-events: none; z-index: 3; }
+.training-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+  background: linear-gradient(120deg, rgba(255, 240, 220, 0.09), transparent 35%); }
+.training-card__media { position: relative; min-height: 0; border-radius: calc(var(--r-lg) - 8px); }
+.training-card__media img { position: absolute; inset: 0; }
+.training-card__body { position: relative; display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: end; padding-inline: 8px; }
+.training-card__num { grid-row: 1 / span 2; align-self: end; font-size: 76px; font-weight: 700; line-height: 0.8; letter-spacing: -0.06em;
+  background: linear-gradient(180deg, var(--caramel-2), rgba(200, 148, 90, 0.35)); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+.training-card__tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t3); }
+.training-card__title { font-size: clamp(22px, 2.4vw, 34px); font-weight: 650; line-height: 1.1; letter-spacing: -0.025em; margin-top: 4px; }
+.training-card__text { grid-column: 1 / -1; margin-top: 12px; font-size: 16px; line-height: 1.5; color: var(--t2); max-width: 42ch; }
+
+.training-seal { position: absolute; z-index: 1; right: 14px; top: 14px; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%;
+  color: var(--bg); background: conic-gradient(from 0deg, var(--caramel-2), #f3d5ad, var(--caramel), var(--caramel-2));
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6), inset 0 0 0 4px rgba(255, 255, 255, 0.25);
+  animation: training-seal 9s linear infinite; }
+.training-seal svg { width: 28px; height: 28px; animation: training-seal 9s linear infinite reverse; }
+@keyframes training-seal { to { transform: rotate(360deg); } }
+
+/* What you get + photo strip */
+.training-perks { display: grid; gap: clamp(36px, 5vw, 56px); margin-top: clamp(40px, 6vw, 80px); align-items: center; }
+.training-get { position: relative; overflow: hidden; display: grid; gap: 14px; padding: clamp(26px, 4vw, 44px); }
+.training-get__shine { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at var(--mx, 80%) var(--my, 0%), rgba(255, 236, 210, 0.16), transparent 50%); }
+.training-get__title { max-width: 20ch; }
+.training-get__list { list-style: none; display: grid; gap: 4px; margin-top: 6px; }
+.training-get__list li { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: center; padding: 12px 0; color: var(--t2); font-size: 16px; border-top: 1px solid var(--line); }
+.training-get__list li:first-child { border-top: 0; }
+.training-get__list strong { color: var(--t1); font-weight: 600; }
+.training-get__ico { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: rgba(226, 180, 124, 0.14); border: 1px solid rgba(226, 180, 124, 0.26); }
+.training-get__ico svg { width: 20px; height: 20px; fill: none; stroke: var(--caramel-2); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+.training-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+.training-strip__item { display: grid; gap: 10px; }
+.training-strip__item--offset { margin-top: 48px; }
+.training-strip__frame { aspect-ratio: 3 / 4; border-radius: var(--r-md); }
+.training-strip__frame img { transition: transform 1.2s var(--ease); }
+.training-strip__item:hover .training-strip__frame img { transform: scale(1.05); }
+.training-strip figcaption { font-family: var(--f-serif); font-style: italic; font-size: 20px; color: var(--t2); padding-left: 4px; }
+
+/* Closing CTA */
+.training-end { margin-top: clamp(64px, 9vw, 120px); padding: clamp(36px, 6vw, 72px) clamp(20px, 4vw, 48px); text-align: center; display: grid; gap: 12px; justify-items: center;
+  background: radial-gradient(120% 140% at 50% 0%, rgba(200, 148, 90, 0.22), transparent 60%), var(--glass-bg); }
+.training-end__text { font-size: clamp(34px, 5.4vw, 72px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.04; }
+.training-end__sub { color: var(--t2); max-width: 36ch; }
+
+@media (min-width: 600px) {
+  .training-strip { gap: 18px; }
+  .training-card__num { font-size: 96px; }
+}
+
+@media (min-width: 900px) {
+  .training { --stack-top: 104px; --stack-step: 18px; }
+  .training-intro { grid-template-columns: 1.15fr 0.85fr; }
+  .training-hero { justify-self: end; }
+  .training-card { grid-template-rows: none; grid-template-columns: 1fr 1.05fr; gap: clamp(24px, 4vw, 56px); padding: 14px 14px 14px clamp(28px, 4vw, 56px); height: min(600px, calc(100svh - var(--stack-top) - 5 * var(--stack-step) - 40px)); }
+  .training-card__media { order: 2; }
+  .training-card__body { grid-template-columns: 1fr; align-content: center; align-items: start; gap: 0; padding: 0; }
+  .training-card__num { grid-row: auto; font-size: clamp(120px, 13vw, 190px); margin-bottom: 18px; }
+  .training-card__title { margin-top: 10px; }
+  .training-card__text { font-size: 18px; margin-top: 16px; }
+  .training-seal { width: 84px; height: 84px; right: 22px; top: 22px; }
+  .training-perks { grid-template-columns: 1fr 1fr; }
+}
+
+/* Short viewports: drop the stacking so nothing gets clipped */
+@media (max-height: 560px) {
+  .training-card { position: relative; top: auto; height: auto; min-height: 0; transform: none; }
+  .training-card__media { aspect-ratio: 16 / 10; }
+  .training-card::after { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .training-float, .training-seal, .training-seal svg { animation: none; }
+  .training-card { transform: none; }
+  .training-card::after { opacity: 0; }
+}

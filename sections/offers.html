@@ -1,0 +1,83 @@
+<section id="offers" class="section offers" data-scene="offers" aria-labelledby="offers-title">
+  <div class="wrap">
+    <header class="offers-head">
+      <span class="eyebrow" data-reveal>Offers</span>
+      <h2 id="offers-title" class="h-1 offers-title" data-split>Little reasons to <span class="serif">drop by</span></h2>
+      <p class="lead offers-lead" data-reveal style="--d:120ms">A sweet deal for students, and something cold and bright for the warm afternoons.</p>
+    </header>
+
+    <div class="offers-grid">
+      <!-- Student promo -->
+      <div class="offers-reveal" data-reveal="scale">
+        <article class="offers-card offers-card--student glass" data-tilt="5" aria-labelledby="offers-student-title">
+          <span class="offers-spec" aria-hidden="true"></span>
+          <div class="offers-student__top">
+            <div class="offers-student__deal">
+              <h3 id="offers-student-title" class="offers-kicker">Student promo</h3>
+              <p class="offers-big"><span class="offers-big__num" data-count="10" data-suffix="%">10%</span> <span class="offers-big__off">OFF</span></p>
+              <p class="offers-card__title">your favourite coffee and pastries</p>
+              <p class="offers-card__note">Just show your student card at the counter.</p>
+            </div>
+            <div class="offers-student__poster frame">
+              <x-img name="offer-student-promo" alt="Special Promo flyer: get 10% off your favourite coffee and pastries with student card. Monday, Lyceum of the Philippines University. Tuesday, University of Batangas. Wednesday, Batangas State University. Thursday, Westmead International School." sizes="(max-width: 700px) 38vw, 200px" class="offers-student__img" />
+            </div>
+          </div>
+
+          <div class="offers-days" data-days>
+            <p class="offers-days__label" id="offers-days-label">Whose day is it?</p>
+            <div class="offers-seg" role="group" aria-labelledby="offers-days-label" style="--i:0">
+              <span class="offers-seg__thumb" aria-hidden="true"></span>
+              <button type="button" class="offers-seg__btn" aria-pressed="true" data-day="0" data-school="Lyceum of the Philippines University" data-sfx="tick"><span aria-hidden="true">Mon</span><span class="sr-only">Monday</span></button>
+              <button type="button" class="offers-seg__btn" aria-pressed="false" data-day="1" data-school="University of Batangas" data-sfx="tick"><span aria-hidden="true">Tue</span><span class="sr-only">Tuesday</span></button>
+              <button type="button" class="offers-seg__btn" aria-pressed="false" data-day="2" data-school="Batangas State University" data-sfx="tick"><span aria-hidden="true">Wed</span><span class="sr-only">Wednesday</span></button>
+              <button type="button" class="offers-seg__btn" aria-pressed="false" data-day="3" data-school="Westmead International School" data-sfx="tick"><span aria-hidden="true">Thu</span><span class="sr-only">Thursday</span></button>
+            </div>
+            <div class="offers-school" aria-live="polite" aria-atomic="true">
+              <span class="offers-school__day" data-school-day>Monday is for</span>
+              <strong class="offers-school__name" data-school-name>Lyceum of the Philippines University</strong>
+            </div>
+            <p class="offers-days__note" data-days-note hidden>Promo runs Monday to Thursday. Here is who is up next.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Summer Sips -->
+      <div class="offers-reveal" data-reveal="scale" style="--d:140ms">
+        <article class="offers-card offers-card--sips glass" data-tilt="5" data-drink="strawberry" aria-labelledby="offers-sips-title">
+          <span class="offers-glow offers-glow--strawberry" aria-hidden="true"></span>
+          <span class="offers-glow offers-glow--calamansi" aria-hidden="true"></span>
+          <span class="offers-glow offers-glow--blueberry" aria-hidden="true"></span>
+          <span class="offers-spec" aria-hidden="true"></span>
+
+          <div class="offers-sips__media frame">
+            <x-img name="offer-summer-sips" alt="Summer Sips Drink poster: Strawberry Mint, Calamansi Ginger and Blueberry Basil spritzers in tall glasses on a sunny beach" sizes="(max-width: 900px) 92vw, 540px" class="offers-sips__img" />
+          </div>
+
+          <h3 id="offers-sips-title" class="offers-kicker">Summer Sips Drinks</h3>
+          <p class="offers-card__title offers-card__title--lg">Three ways to <span class="serif">cool down</span></p>
+
+          <div class="offers-pills" role="group" aria-label="Choose a Summer Sips drink">
+            <button type="button" class="offers-pill" aria-pressed="true" data-pick="strawberry" data-sfx="pour"><b aria-hidden="true"></b>Strawberry Mint</button>
+            <button type="button" class="offers-pill" aria-pressed="false" data-pick="calamansi" data-sfx="pour"><b aria-hidden="true"></b>Calamansi Ginger</button>
+            <button type="button" class="offers-pill" aria-pressed="false" data-pick="blueberry" data-sfx="pour"><b aria-hidden="true"></b>Blueberry Basil</button>
+          </div>
+
+          <div class="offers-desc">
+            <p class="offers-desc__text is-on" data-desc="strawberry">Taste the pure essence of sunshine in every sip.</p>
+            <p class="offers-desc__text" data-desc="calamansi" hidden>A classic Calamansi Ginger that's like a breath of fresh air on a hot summer day.</p>
+            <p class="offers-desc__text" data-desc="blueberry" hidden>This sparkling spritzer combines the freshness of blueberry puree with a touch of basil.</p>
+            <p class="sr-only" aria-live="polite" data-desc-live></p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="offers-cta" data-reveal>
+      <a class="btn btn--caramel offers-cta__btn" href="https://www.facebook.com/brewberycafe" target="_blank" rel="noopener" data-magnetic>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>
+        Message us on Facebook
+      </a>
+      <p class="offers-cta__note">Questions about a promo? We are happy to help.</p>
+    </div>
+  </div>
+</section>
